@@ -5,7 +5,7 @@ module.exports = {
     mode: 'development',
     entry: './src/index.js',
     resolve: {
-        extensions: ['.js', '.jsx', '.scss']
+        extensions: ['.js', '.jsx', '.scss', '.css']
     },
     module: {
         rules: [
@@ -18,6 +18,10 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
             },
+            {
+                test: /\.css$/,
+                loaders: ["style-loader", "css-loader"]
+            }
         ]
     },
     plugins: [new HtmlWebpackPlugin({
