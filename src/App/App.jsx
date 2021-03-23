@@ -3,7 +3,6 @@ import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { PortfolioThemeContext } from '../_context';
 import { HomePage } from '../_routes';
-import './_styles/App.scss';
 
 function App() {
   const [ theme, setTheme ] = useState({});
