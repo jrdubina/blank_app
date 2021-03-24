@@ -5,7 +5,7 @@ import { PortfolioThemeContext } from '../_context';
 import { HomePage } from '../_routes';
 
 function App() {
-  const [ theme, setTheme ] = useState({colorOne: '#555555', colorTwo: '#777777', colorThree: '#888888'});
+  const [ theme, setTheme ] = useState({colorOne: '#987284', colorTwo: '#9DBF9E', colorThree: '#D0D6B5', colorFour: '#F9B5AC', colorFive: '#EE7674'});
   const history = createBrowserHistory();
 
   useEffect(() => {

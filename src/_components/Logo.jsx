@@ -2,18 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const LogoDiv = styled.div`
-    color: ${props => props.logoColor};
-    font-size: xx-large;
+const StyledLogo = styled.div`
+    letter-spacing: -.3em;
+    font-size: 100px;
     font-weight: bolder;
-    font-family: "Rock Salt", sans-serif;
+    margin-top: -30px;
+
+    a {
+        color: ${props => props.logoColor};
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
 `;
+
+//TODO: set up URL
 
 export const Logo = ({ logo = '',  logoColor = '' }) => {
     return (
-        <LogoDiv logoColor={logoColor}>
-            {logo}
-        </LogoDiv>
+        <StyledLogo logoColor={logoColor}>
+            <a href='#'>
+                {logo}
+            </a>
+        </StyledLogo>
     );
 }
 
