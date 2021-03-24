@@ -2,16 +2,20 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCog } from '@fortawesome/free-solid-svg-icons';
-import './_styles_/Settings.scss'
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 library.add(faCog);
 
-export const Settings = ({cogColor = ''}) => {
+const StyledSettings = styled.div`
+    float: right;
+`;
+
+export const Settings = ({ cogColor = '' }) => {
     return (
-        <div className='settingsCog'>
+        <StyledSettings>
             <FontAwesomeIcon icon='cog' size='3x' color={cogColor} />
-        </div>
+        </StyledSettings>
     );
 }
 

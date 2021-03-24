@@ -1,15 +1,24 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { Settings } from '../_components';
+import { Logo, Settings } from '../_components';
+import PropTypes from 'prop-types';
 
-export const HomePage = () => {
+export const HomePage = ({ logo = '', theme = {} }) => {
     return(
         <Container>
-            <Row>
+            <Row className='mt-3'>
                 <Col>
-                    <Settings />
+                    <Logo logo={logo} logoColor={theme.colorOne} />
+                </Col>
+                <Col>
+                    <Settings cogColor={theme.colorTwo} />
                 </Col>
             </Row>
         </Container>
     )
+}
+
+Settings.propTypes = {
+    logo: PropTypes.string,
+    theme: PropTypes.object
 }
