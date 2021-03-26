@@ -1,3 +1,4 @@
-export * from './Logo';
-export * from './Nav';
-export * from './Settings';
+export * from './About';
+export * from './Header';
+export * from './Hero';
+export * from './Skills';

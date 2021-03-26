@@ -24,8 +24,8 @@ export const Nav = ({ navItems = [],  itemsColor = '' }) => {
             {
                 navItems?.map((item, index) => {
                     return (
-                        <a href='#'>
-                            <StyledItem key={`${item}_${index}`} itemsColor={itemsColor}>
+                        <a href='#' key={`${item}_${index}`}>
+                            <StyledItem itemsColor={itemsColor}>
                                 {item}
                             </StyledItem>
                         </a>
