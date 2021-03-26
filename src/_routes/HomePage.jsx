@@ -1,6 +1,5 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import { About, Hero, Skills } from '../_components';
+import { About, BlogPost, Hero, Portfolio, Skills } from '../_components';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -15,6 +14,8 @@ export const HomePage = ({ logo = '', theme = {} }) => {
             <main>
                 <About />
                 <Skills />
+                <Portfolio />
+                <BlogPost />
             </main>
         </StyleWrapper>
     )
