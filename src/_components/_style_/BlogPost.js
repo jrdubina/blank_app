@@ -8,6 +8,16 @@ export const BlogStyledWrapper = styled.div`
     padding-bottom: 50px;
     position: relative;
 
+    .section-title {
+        margin-bottom: 70px;
+      
+        h2 {
+            font-size: 25px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+          }
+      }
+
     .blog-block {
         display: inline-block;
         height: auto;

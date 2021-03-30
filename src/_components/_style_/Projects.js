@@ -1,9 +1,19 @@
 import styled from 'styled-components';
 
-export const PortfolioStyledWrapper = styled.div`
+export const ProjectsStyledWrapper = styled.div`
     position: relative;
     padding-top: 90px;
     padding-bottom: 50px;
+
+    .section-title {
+        margin-bottom: 70px;
+      
+        h2 {
+            font-size: 25px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+          }
+      }
 
     .portfolio-container {
         margin-right: 0;

@@ -10,7 +10,7 @@ import {
     faLightbulb, 
     faBriefcase, 
     faBrain, 
-    faPuzzlePiece 
+    faPuzzlePiece
 } from '@fortawesome/free-solid-svg-icons';
 import { faRebel } from '@fortawesome/free-brands-svg-icons';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
@@ -22,13 +22,14 @@ import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 import { SkillsStyledWrapper } from './_style_/Skills';
 
-library.add([faChartBar, faCode, faLightbulb, faBriefcase, faBrain, faPuzzlePiece, faRebel]);
+export const Skills = ({ data = {} }) => {
 
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
+    library.add([faChartBar, faCode, faLightbulb, faBriefcase, faBrain, faPuzzlePiece, faRebel]);
 
-AOS.init();
+    SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
-export const Skills = ({  }) => {
+    AOS.init();
+
     return (
         <SkillsStyledWrapper>
             <Container>
@@ -39,44 +40,20 @@ export const Skills = ({  }) => {
                     autoplay={true}
                     className='skills-block'
                     data-aos='fade-up'
-                    data-aos-anchor-placement='bottom-bottom'
-                    data-aos-delay='100'
+                    data-aos-anchor-placement='center-bottom'
+                    data-aos-delay='750'
                 >
-                    <SwiperSlide>
-                        <FontAwesomeIcon icon={['fas', 'chart-bar']} size='3x' className='fontAwesomeIcon' />
-                        <p className='skillsHeading'>Data Driven</p>
-                        <p className='separator'>Analyse data to determine the best architecture for the project or make informed pivots.</p>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <FontAwesomeIcon icon={['fas', 'code']} size='3x' className='fontAwesomeIcon' />
-                        <p className='skillsHeading'>TDD</p>
-                        <p className='separator'>Principled test driven development, ensuring all test cover acceptance criteria before development begins.</p>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <FontAwesomeIcon icon={['fas', 'lightbulb']} size='3x' className='fontAwesomeIcon' />
-                        <p className='skillsHeading'>Innovative</p>
-                        <p className='separator'>Recognized with multiple awards for innovative ideas. Im a believer in what Peter Drucker famously said "Innovate or die".  </p>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <FontAwesomeIcon icon={['fas', 'briefcase']} size='3x' className='fontAwesomeIcon' />
-                        <p className='skillsHeading'>Collaborator</p>
-                        <p className='separator'>Whether I'm collaborating with my team or cross team collaboration, I enjoy fresh ideas and perspectives that I wouldn't have thought of.</p>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <FontAwesomeIcon icon={['fas', 'brain']} size='3x' className='fontAwesomeIcon' />
-                        <p className='skillsHeading'>Continuous Learning</p>
-                        <p className='separator'>I find myself always digging into new packages, courses or personal projects. I'm always looking to learn something new each day.</p>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <FontAwesomeIcon icon={['fas', 'puzzle-piece']} size='3x' className='fontAwesomeIcon' />
-                        <p className='skillsHeading'>Problem Solver</p>
-                        <p className='separator'>Always looking for a problem and challenge that requires me to find a creative solution.</p>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <FontAwesomeIcon icon={['fab', 'rebel']} size='3x' className='fontAwesomeIcon' />
-                        <p className='skillsHeading'>Rebel Alliance</p>
-                        <p className='separator'>"Do or do not, there is no try" - Yoda</p>
-                    </SwiperSlide>
+                    {
+                        data?.icons?.map(item => {
+                            return (
+                                <SwiperSlide key={item?.icon?.import}>
+                                    <FontAwesomeIcon icon={[item?.icon?.abbreviation, item?.icon?.name]} size='3x' className='fontAwesomeIcon' />
+                                    <p className='skillsHeading'>{item?.header}</p>
+                                    <p className='separator'>{item?.bodyText}</p>
+                                </SwiperSlide>
+                            );
+                        })
+                    }
                 </Swiper>
             </Container>
         </SkillsStyledWrapper>
@@ -84,5 +61,5 @@ export const Skills = ({  }) => {
 }
 
 Skills.propTypes = {
-
+    data: PropTypes.object
 }

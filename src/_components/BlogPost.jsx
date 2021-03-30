@@ -2,48 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Container, Row } from 'react-bootstrap';
 import { BlogStyledWrapper } from './_style_';
+import AOS from 'aos'
+import 'aos/dist/aos.css';
 
-export const BlogPost = ({  }) => {
+export const BlogPost = ({ data = {} }) => {
+    AOS.init();
+
     return (
-        <BlogStyledWrapper>
+        <BlogStyledWrapper id='blog'>
             <Container>
                 <div className='section-title text-center'>
-                    <h2>Blog</h2>
+                    <h2>{data?.header}</h2>
                 </div>
             </Container>
             <Container>
                 <div className='blog-block'>
                     <Row>
-                        <Col lg={4} md={6}>
-                            <div className='blog-info'>
-                                <a href='blog-single.html'><img src='assets/img/blog-post-1.jpg' className='img-responsive' alt='img' /></a>
-                                <div className='blog-txt'>
-                                    <h4><a href='blog-single.html'>SO LETS MAKE THE MOST IS BEAUTIFUL</a></h4>
-                                    <p className='separator'>To an English person, it will seem like simplified English
-                                    </p>
-                                </div>
-                            </div>
-                        </Col>
-                        <Col lg={4} md={6}>
-                            <div className='blog-info'>
-                                <a href='blog-single.html'><img src='assets/img/blog-post-2.jpg' className='img-responsive' alt='img' /></a>
-                                <div className='blog-txt'>
-                                    <h4><a href='blog-single.html'>WE'RE GONA MAKE DREAMS COMES</a></h4>
-                                    <p className='separator'>To an English person, it will seem like simplified English
-                                    </p>
-                                </div>
-                            </div>
-                        </Col>
-                        <Col lg={4} md={6}>
-                            <div className='blog-info'>
-                                <a href='blog-single.html'><img src='assets/img/blog-post-3.jpg' className='img-responsive' alt='img' /></a>
-                                <div className='blog-txt'>
-                                    <h4><a href='blog-single.html'>NEW LIFE CIVILIZATIONS TO BOLDLY</a></h4>
-                                    <p className='separator'>To an English person, it will seem like simplified English
-                                    </p>
-                                </div>
-                            </div>
-                        </Col>
+                        {
+                            data?.blogList?.map((post, index) => {
+                                return (
+                                    <Col lg={4} md={6} key={`${post?.url}${index}`}>
+                                        <div 
+                                            className='blog-info'
+                                            data-aos='flip-up'
+                                            data-aos-anchor-placement='bottom-bottom'
+                                            data-aos-delay='750'
+                                        >
+                                            <a href={post?.url}>
+                                                <img src={post?.image?.blogImage} className='img-responsive' alt={post?.image?.alt} />
+                                            </a>
+                                            <div className='blog-txt'>
+                                                <h4><a href={post?.url}>{post?.header}</a></h4>
+                                                <p className='separator'>{post?.subheader}</p>
+                                            </div>
+                                        </div>
+                                    </Col>
+                                );
+                            })
+                        }
                     </Row>
                 </div>
             </Container>
@@ -52,5 +48,5 @@ export const BlogPost = ({  }) => {
 }
 
 BlogPost.propTypes = {
-
+    data: PropTypes.object
 }
