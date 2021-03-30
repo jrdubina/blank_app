@@ -26,7 +26,7 @@ export const BlogPost = ({ data = {} }) => {
                                             className='blog-info'
                                             data-aos='flip-up'
                                             data-aos-anchor-placement='bottom-bottom'
-                                            data-aos-delay='750'
+                                            data-aos-delay='500'
                                         >
                                             <a href={post?.url}>
                                                 <img src={post?.image?.blogImage} className='img-responsive' alt={post?.image?.alt} />

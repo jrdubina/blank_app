@@ -41,7 +41,7 @@ export const Skills = ({ data = {} }) => {
                     className='skills-block'
                     data-aos='fade-up'
                     data-aos-anchor-placement='center-bottom'
-                    data-aos-delay='750'
+                    data-aos-delay='500'
                 >
                     {
                         data?.icons?.map(item => {

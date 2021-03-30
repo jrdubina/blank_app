@@ -16,22 +16,23 @@ export const Hero = ({ data = {} }) => {
                 <div className='hero-content'>
                     <h1>{data?.header}
                         {
-                            <Typist>
-                                {
-                                    data?.headerArr?.map((item, index) => {
-                                        if (item.removeCount > 0) {
-                                            return (
-                                                <span key={`${item?.removeCount}${index}`}>
-                                                    <span>{item?.text}</span>
-                                                    <Typist.Backspace count={item?.removeCount} delay={1500} />
-                                                </span>
-                                            );
-                                        }
+                            data?.headerArr?.length > 0 &&
+                                <Typist>
+                                    {
+                                        data.headerArr.map((item, index) => {
+                                            if (item.removeCount > 0) {
+                                                return (
+                                                    <span key={`${item?.removeCount}${index}`}>
+                                                        <span>{item?.text}</span>
+                                                        <Typist.Backspace count={item?.removeCount} delay={1500} />
+                                                    </span>
+                                                );
+                                            }
 
-                                        return <span key={`${item?.removeCount}${index}`}>{item?.text}</span>
-                                    })
-                                }
-                            </Typist>
+                                            return <span key={`${item?.removeCount}${index}`}>{item?.text}</span>
+                                        })
+                                    }
+                                </Typist>
                         }
                     </h1>
                     <p>{data?.subheader}</p>
